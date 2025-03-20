@@ -77,7 +77,7 @@ function parImpar(n) {
   }
 }
 let num = 4;
-console.log(parImpar(num));
+ 
 console.log(`o numero ${num} é ${parImpar(num)}`);
 
 // função anonima

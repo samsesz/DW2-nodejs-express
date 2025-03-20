@@ -14,8 +14,7 @@ class Carro {
 
 // Criando uma instância (objeto) da classe carro
 const carroPopular = new Carro("fiat", "uno", "2012");
-console.log(
-  `O carro ${carroPopular.marca} modelo ${carroPopular.modelo} é do ano: ${
+console.log(`O carro ${carroPopular.marca} modelo ${carroPopular.modelo} é do ano: ${
     carroPopular.ano
   } e faz ${carroPopular.buzinar()}`
 );

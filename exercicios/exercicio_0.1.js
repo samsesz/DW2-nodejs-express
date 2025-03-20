@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Função simples 1-
 function exe1 (){
    console.log("Samia, 19 anos, Registro - Sp");
@@ -53,7 +52,6 @@ console.log (`o resultado da operação é ${calc(3, 3, 3, 3)}`);
 
 const iife = (function (nome) {
     console.log(`seu nome é: ${nome}`)
-=======
 // Função simples 1-
 function exe1 (){
    console.log("Samia, 19 anos, Registro - Sp");
@@ -108,5 +106,4 @@ console.log (`o resultado da operação é ${calc(3, 3, 3, 3)}`);
 
 const iife = (function (nome) {
     console.log(`seu nome é: ${nome}`)
->>>>>>> 2cb0fa32562d1e872be00f3037e26edb99b7d5a2
-} )("samia")
+}) ("samia")
