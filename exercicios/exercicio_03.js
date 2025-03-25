@@ -63,9 +63,36 @@ batman.invertigar = function(){
 console.log(`O heroi ${batman.nome} de vida: ${batman.vida} velocidade: ${batman.velocidade} força: ${batman.forca} ${batman.esconder}. ${batman.invertigar()}. Agora ele ${batman.correr()} ${batman.andar()} ${batman.atacar()} e agora ${batman.defender()}`);
 
 /////////////////////////////////////////
-const dataAtual = (dia, mes, ano) => {
-    return (`${dia}, ${mes}, ${ano}`)
+console.log()
+const exibirData = () => {
+    const hoje = new Date ();
+    hoje.setDate(hoje.getDate() + 3);
+    hoje.setMonth(hoje.getMonth() + 2);
+    hoje.setFullYear(hoje.getFullYear() + 1);
 
+    console.log(`${hoje.getDate()}/ ${hoje.getMonth()}/ ${hoje.getFullYear()}`);
 }
 
+exibirData();
+console.log()
+////////////////////////////////////////////////////////////////////
+console.log()
+const salDol = (salReal) => {
+    return salReal = 0.176;
+}
 
+const salEuro = (salReal) => {
+    return salReal = 0.16;
+}
+
+console.log(`O salario em dolar e ${salDol (2000).toLocaleString("en", {style: "currency",
+    currency: "USD"})}`)
+
+console.log(`O salario em euro e ${salDol (2000).toLocaleString("en", {style: "currency",
+    currency: "EUR"})}`)
+console.log()
+//////////////////////////////////////////////////////////////////////////////
+const nome = "Samia Muniz"
+console.log(nome.toUpperCase())
+console.log(nome.toLowerCase())
+console.log(nome.length)
