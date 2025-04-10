@@ -1,1 +1,0 @@
-alert("Se você estiver lendo isso, o javascript foi importado com sucesso!")
