@@ -7,10 +7,11 @@ router.get("/produtos", (req, res) => {
 
     // Array com lista
     const produtos = [
-        { nome: "Celular Motorola E22", preco: 1200, categoria: "Eletroportáteis"},
-        { nome: "Tablet Samsung", preco: 900, categoria: "Eletrônico"},
-        { nome: "Notebook Lenovo", preco: 3200, categoria: "Computadores"},
-        { nome: "Fone Bluetooth", preco: 150, categoria: "Periféricos"},
+        { nome: "Celular Samsung Z-Flip", preco: 3400, categoria: "Smarthpones", imagem: "/images/zflip.webp"},
+        { nome: "Tablet Samsung", preco: 900, categoria: "Eletrônico", imagem: "/images/tablet.jpg"},
+        { nome: "Notebook Acer Aspire 5", preco: 3200, categoria: "Computadores", imagem: "/images/notebook.jpg"},
+        { nome: "Fone Bluetooth", preco: 150, categoria: "Periféricos", imagem: "/images/fone.jpg"},
+        { nome: "Computador Gamer", preco: 5400, categoria: "Computadores", imagem: "/images/pcgamer.webp"},
     ];
     
     res.render("produtos", {
@@ -20,4 +21,4 @@ router.get("/produtos", (req, res) => {
   });
 
 //   Exportando o modulo
-export default router;
+export default router;''
