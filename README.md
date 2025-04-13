@@ -1,2 +1,3 @@
-# DW2-nodejs-express
-Material de aulas fatec
+# Aulas de Node.js!
+
+Material feito em aula na fatec!
