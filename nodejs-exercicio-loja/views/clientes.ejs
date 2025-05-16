@@ -1,35 +1,69 @@
 <%- include ('partials/navbar.ejs') %>
 <%- include ('partials/header.ejs') %>
 
-<div class="container">
-    <div class="card">
-        <div class="card-header" style="border: 4px; background-color: rgb(84, 137, 236);">
-            <h1>Clientes</h1>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered table-hover" style="border: 4px; background-color: cornflowerblue;">
-                <thead class="table-dark">
-                    <tr>
-                        <th style="text-align: center;">#</th>
-                        <th>Nome:</th>
-                        <th>CPF:</th>
-                        <th>Endereço:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Chamando o array de objetos -->
-                    <% clientes.forEach(cliente => { %>
-                    <tr>
-                        <td><%= cliente.id %></td>
-                        <td><%= cliente.nome %></td>
-                        <td><%= cliente.cpf %></td>
-                        <td><%= cliente.endereco %></td>
-                    </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        </div>
+<div class="container-formulario">
+    <h3> Registro de Usuários </h3>
+    <hr>
+    <div class="wrapper">
+    <div class="cadastrar">
+        <h4> Cadastrar novo Usuário </h4>
+        <hr>
+        <form action="/clientes/new" method="POST">
+            <div class="inserir-dados">
+            <label> Nome:</label>
+            <input type="text" name="nome" placeholder="Digite o nome completo" class="form-input" id="nome">
+            <label> CPF:</label>
+            <input type="text" name="cpf" placeholder="Digite o cpf" class="form-input" id="cpf">
+            <label> Endereço:</label>
+            <input type="text" name="endereco" placeholder="Digite o endereço" class="form-input" id="endereco">
+            <div class="div-botao">
+                <button name="cadastrar-cliente" class="button-cadastro" id="cadastrarCliente" type="submit"> Cadastrar </button>
+            </div>
+            </div>
+        </form>
     </div>
+
+    <div class="consultar">
+        <h4> Consultar Usuários </h4>
+        <table>
+          <thead>
+            <th> Id </th>
+            <th> Nome </th>
+            <th> CPF </th>
+            <th> Endereço </th>
+          </thead>
+          <tbody>
+            <tr>
+                <td>1</td>
+                <td>Samia</td>
+                <td>111.111.111-09</td>
+                <td>Rua tal, 56</td>
+                <td>
+                    <Button name="editar-cliente" class="btn-editar"> Editar <i class = "fas fa-pencil"></i></Button>
+                </td>
+                <td>
+                    <Button name="excluir-cliente" class="btn-excluir"> Excluir <i class = "fas fa-cancel"></i></Button>
+                </td>
+            </tr>
+            
+            <% clientes.forEach(cliente => { %>
+            <tr>
+                <td><%= cliente.id %></td>
+                <td><%= cliente.nome %></td>
+                <td><%= cliente.cpf %></td>
+                <td><%= cliente.endereco %></td>
+                
+                <td><a href="/clientes/edit/<%= cliente.id %>"> <Button name="editar-cliente" class="btn-editar"> Editar <i class = "fas fa-pencil"></i></Button></a></td>
+                <td><a href="/clientes/delete/<%= cliente.id %>"><Button name="excluir-cliente" class="btn-excluir"> Excluir <i class = "fas fa-cancel"></i></Button></a></td>
+            </tr>
+            <% }) %>
+          </tbody>
+            
+            
+        </table>
+    </div>
+</div>
+    
 </div>
 
     <hr>

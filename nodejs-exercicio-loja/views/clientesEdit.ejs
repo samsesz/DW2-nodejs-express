@@ -1,0 +1,28 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+<div class="container-formulario">
+    <h3> Registro de Usuários </h3>
+    <hr>
+    <div class="wrapper">
+    <div class="cadastrar">
+        <h4> Cadastrar novo Usuário </h4>
+        <hr>
+        <form action="/clientes/update/<%= cliente.id %>" method="POST">
+            <div class="inserir-dados">
+            <label> Nome:</label>
+            <input type="text" name="nome" placeholder="Digite o nome completo" class="form-input" value="<%= cliente.nome %>">
+            <label> CPF:</label>
+            <input type="text" name="cpf" placeholder="Digite o cpf" class="form-input" value="<%= cliente.cpf %>">
+            <label> Endereço:</label>
+            <input type="textwer
+             " name="endereco" placeholder="Digite o endereço" class="form-input" value="<%= cliente.endereco %>">
+            <div class="div-botao">
+                <input type="hidden" name="id" value="<%= cliente.id %>">
+                <input type="submit" class="button-cadastro" value="Alterar" onclick="return confirm (`Confirme as alterações realizadas para o cliente <%= cliente.nome %>`)">
+            </div>
+            </div>
+        </form>
+    </div>
+
+<%- include ('partials/footer.ejs') %>

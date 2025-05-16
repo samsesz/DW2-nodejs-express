@@ -1,25 +1,64 @@
 import express from "express";
+import Clientes from "../models/Clientes.js";
 // Carregando o metodo do express para gerenciamento de rotas
 const router = express.Router();
 
 // Rota de clientes
 router.get("/clientes", (req, res) => {
-
-    // Array com lista
-    const clientes = [
-        { id: 1, nome: "Maria", cpf: "234.234.233.-01", endereco: "Av.Paulista, 543"},
-        { id: 2, nome: "João", cpf: "233.233.233-09", endereco: "Av.Paulista, 222" },
-        { id: 3, nome: "Carlos", cpf: "433.544.655-08", endereco: "Jardim das Palmeiras, 05"},
-        { id: 4, nome: "Mariana", cpf: "234.456.789-00", endereco: "Avenida Marfim, 43"},
-        { id: 5, nome: "José", cpf: "499.234.432-03", endereco: "Rua benedito da silva, 345"},
-        
-    ];
-    
+  Clientes.findAll().then((clientes) => {
     res.render("clientes", {
-      //Enviando variaveis para a pagina
-      clientes : clientes
-    });
-  });
+      clientes : clientes,
+     });
+   });
+});
 
+
+router.post("/clientes/new", (req, res) => {
+  const nome = req.body.nome
+  const cpf = req.body.cpf
+  const endereco = req.body.endereco
+  Clientes.create({
+    nome : nome,
+    cpf : cpf,
+    endereco : endereco
+  }).then(() => {
+    res.redirect("/clientes")
+  })
+})
+
+router.get("/clientes/delete/:id", (req,res) => {
+  const id = req.params.id
+  Clientes.destroy ({
+    where: { id : id }
+  }).then(() => {
+    res.redirect("/clientes")
+  })
+})
+
+router.get("/clientes/edit/:id", (req,res) => {
+  const id = req.params.id
+  Clientes.findByPk(id).then(function(cliente) {
+    res.render("clientesEdit", {
+      cliente : cliente
+    })
+  })
+})
+router.post("/clientes/update/:id", (req,res) => {
+  const id = req.params.id
+  const nome = req.body.nome
+  const cpf = req.body.cpf
+  const endereco = req.body.endereco
+  Clientes.update(
+    {
+    id : id,
+    nome : nome,
+    cpf : cpf,
+    endereco : endereco
+    },
+  {where: {id : id}}
+).then(() => {
+  res.redirect("/clientes")
+})
+})
 //   Exportando o modulo
 export default router;
